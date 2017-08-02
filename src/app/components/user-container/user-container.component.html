@@ -2,5 +2,9 @@
   user-container works!
 </p>
 
-<app-user-list [users]="users"></app-user-list>
+<app-user-list
+  [users]="users" 
+  (selectItem)="showDetail($event)">
+</app-user-list>
+
 <app-user-detail></app-user-detail>

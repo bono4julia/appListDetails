@@ -9,7 +9,10 @@ import { User } from '../../models/user';
 })
 export class UserContainerComponent {
   users: User[] = users;
-// синяя
+
   constructor() {}
 
+  showDetail(user: User) {
+    console.log(user);
+  }
 }
