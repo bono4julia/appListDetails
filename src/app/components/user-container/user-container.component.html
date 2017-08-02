@@ -2,9 +2,5 @@
   user-container works!
 </p>
 
-<ul>
-  <li *ngFor="let item of users">{{item.id}} {{item.name}} </li>
-</ul>
-
-<app-user-list></app-user-list>
+<app-user-list [users]="users"></app-user-list>
 <app-user-detail></app-user-detail>
