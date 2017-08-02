@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersMockDataService } from '../../mock/data/users';
+import { users } from '../../data/users';
 import { User } from '../../models/user';
 
 @Component({
@@ -8,15 +8,8 @@ import { User } from '../../models/user';
   styleUrls: ['./user-container.component.css']
 })
 export class UserContainerComponent {
+  users: User[] = users;
 
-  users: User[] = UsersMockDataService;
-
-
-  constructor() 
-    {}
-
-    ngOnInit() {
-    }
-
+  constructor() {}
 
 }
