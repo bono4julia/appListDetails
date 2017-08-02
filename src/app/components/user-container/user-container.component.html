@@ -3,7 +3,7 @@
 </p>
 
 <ul>
-  <li *ngFor=item of users>{{item.id}} {{item.name}} </li>
+  <li *ngFor="let item of users">{{item.id}} {{item.name}} </li>
 </ul>
 
 <app-user-list></app-user-list>
