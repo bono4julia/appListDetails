@@ -1,5 +1,5 @@
 <p>
-  user-container works!
+  User container:
 </p>
 
 <app-user-list
@@ -7,4 +7,6 @@
   (selectItem)="showDetail($event)">
 </app-user-list>
 
-<app-user-detail></app-user-detail>
+<app-user-detail>
+  [user] = "user"
+</app-user-detail>

@@ -9,7 +9,7 @@ import { User } from '../../models/user';
 })
 export class UserListComponent {
 
-  @Input() users: User[];
+  @Input() users: User[];               //тип
   @Output() selectItem = new EventEmitter<User>();
 
   constructor() { }
