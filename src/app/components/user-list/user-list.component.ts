@@ -9,12 +9,14 @@ import { User } from '../../models/user';
 })
 export class UserListComponent {
 
-  @Input() users: User[];               //тип
-  @Output() selectItem = new EventEmitter<User>();
+  @Input() items: User[]; 
+  @Output() setItem = new EventEmitter<User>();              //тип
 
   constructor() { }
 
-  onSelectItem(user: User) {
-    this.selectItem.emit(user);
+  onSelectItem(item: User) {
+    this.setItem.emit(item);
+            // Сообщить
   }
+
 }

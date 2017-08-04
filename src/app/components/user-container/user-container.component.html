@@ -3,10 +3,14 @@
 </p>
 
 <app-user-list
-  [users]="users" 
-  (selectItem)="showDetail($event)">
+  [items]="users"
+  (setItem)="setSelectedUser($event)"
+>
 </app-user-list>
 
-<app-user-detail>
-  [user] = "user"
+<button (click)="clearSelectedUser()">Clear selected user</button>
+
+<app-user-detail
+  [item]="selectedUser"
+>
 </app-user-detail>

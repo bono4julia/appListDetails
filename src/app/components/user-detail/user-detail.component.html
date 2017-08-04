@@ -1,4 +1,2 @@
-<p>
-  user-detail:
-  {{user.id}}
-</p>
+<div *ngIf="item==null">Please, select user!</div>
+<div *ngIf="item!=null">user-detail: {{item.adress}}</div>

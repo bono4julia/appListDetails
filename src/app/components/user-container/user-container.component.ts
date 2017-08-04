@@ -9,10 +9,18 @@ import { User } from '../../models/user';
 })
 export class UserContainerComponent {
   users: User[] = users;
+  selectedUser: User = null;
 
   constructor() {}
 
-  showDetail(user: User) {
+  // Чтобы знать, какой метод установил (кто вызвыл)
+  setSelectedUser(user: User) {
+    this.selectedUser = user;
     console.log(user);
   }
+
+  clearSelectedUser() {
+    this.selectedUser = null;
+  }
+
 }
