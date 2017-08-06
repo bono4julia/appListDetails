@@ -2,20 +2,19 @@
   user-add works!
  </p> 
 
-<form #f="ngForm" (ngSubmit)="addNewUser(f)">
+<form [formGroup]="myForm" #f="ngForm" (ngSubmit)="addNewUser(myForm)">
 
   <div>
     <label for="name">Name:</label>
     <input type="text" name="name"
-      required minlength="3"
-      [(ngModel)]="user.name"
-      #name="ngModel"
+      formControlName="name"
     >
-    <div *ngIf="name.invalid && f.submitted">
-      <span *ngIf="name.errors.required">
+    <div *ngIf="myForm.controls['name'].invalid && f.submitted">
+      <span *ngIf="myForm.controls['name'].errors.required">
         Name is required!
       </span>
-      <span *ngIf="name.errors.minlength">
+
+      <span *ngIf="myForm.controls['name'].errors.minlength">
          Name must be at least 3 characters long.
       </span>
     </div>
@@ -24,11 +23,9 @@
   <div>
     <label for="surname">Surname:</label>
     <input type="text" name="surname" 
-      required
-      [(ngModel)]="user.surname"
-      #surname="ngModel"
+      formControlName="surname"
     >
-    <span *ngIf="surname.invalid && f.submitted">
+    <span *ngIf="myForm.controls['surname'].invalid && f.submitted">
       Invalid surname
     </span>
   </div>
@@ -36,7 +33,7 @@
   <div>
     <label for="adress">Adress:</label>
     <input type="text" name="adress"
-      [(ngModel)]="user.adress"
+      formControlName="adress"
     >
   </div> 
 

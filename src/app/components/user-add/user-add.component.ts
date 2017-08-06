@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { User } from '../../models/user';
-import { NgForm } from '@angular/forms'
+import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-user-add',
@@ -13,12 +13,20 @@ export class UserAddComponent {
   
   user: User = null; 
 
-  constructor() {
+  myForm : FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
     this.user = new User();
+
+    this.myForm = formBuilder.group({
+      "name": [this.user.name, [Validators.required]],
+      "surname": [this.user.surname, [Validators.required]],
+      "adress": [this.user.adress]
+    })
    }
 
-  addNewUser(form: NgForm) {
-    if(form.invalid) {
+  addNewUser() {
+    if(this.myForm.invalid) {
       return;
     }
 
