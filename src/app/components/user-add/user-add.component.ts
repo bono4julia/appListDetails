@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { User } from '../../models/user';
+import { NgForm } from '@angular/forms'
 
 @Component({
   selector: 'app-user-add',
@@ -16,7 +17,11 @@ export class UserAddComponent {
     this.user = new User();
    }
 
-  addNewUser(form) {
+  addNewUser(form: NgForm) {
+    if(form.invalid) {
+      return;
+    }
+
     this.addUser.emit(this.user);
     this.user = new User();
   }

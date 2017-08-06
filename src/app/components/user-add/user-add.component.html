@@ -2,29 +2,43 @@
   user-add works!
  </p> 
 
-  <form (ngSubmit)="addNewUser()" >
-    <div>
-      <label for="name">Name:</label>
-      <input type="text" name="name" required
-        [(ngModel)]="user.name"
-      >
+<form #f="ngForm" (ngSubmit)="addNewUser(f)">
+
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" name="name"
+      required minlength="3"
+      [(ngModel)]="user.name"
+      #name="ngModel"
+    >
+    <div *ngIf="name.invalid && f.submitted">
+      <span *ngIf="name.errors.required">
+        Name is required!
+      </span>
+      <span *ngIf="name.errors.minlength">
+         Name must be at least 3 characters long.
+      </span>
     </div>
-    <div>
-      <label for="surename">Surname:</label>
-      <input type="text" name="surename" required
-        [(ngModel)]="user.surname"
-      >
-    </div>
-    <div>
-      <label for="adress">Adress:</label>
-      <input type="text" name="adress"
-        [(ngModel)]="user.adress"
-      >
-    </div> 
+  </div>
 
-    <button type="submit">Add user</button>
+  <div>
+    <label for="surname">Surname:</label>
+    <input type="text" name="surname" 
+      required
+      [(ngModel)]="user.surname"
+      #surname="ngModel"
+    >
+    <span *ngIf="surname.invalid && f.submitted">
+      Invalid surname
+    </span>
+  </div>
 
-  </form>
+  <div>
+    <label for="adress">Adress:</label>
+    <input type="text" name="adress"
+      [(ngModel)]="user.adress"
+    >
+  </div> 
 
- 
-
+  <button type="submit">Add user</button>
+</form>
