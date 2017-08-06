@@ -2,6 +2,11 @@
   User container:
 </p>
 
+<app-user-add
+(addUser)="addNewUser($event)"
+>
+</app-user-add>
+
 <app-user-list
   [items]="users"
   (setItem)="setSelectedUser($event)"
@@ -14,3 +19,9 @@
   [item]="selectedUser"
 >
 </app-user-detail>
+
+<app-clear-selected-user
+  (clearUser)="clearSelectedUser()"
+>
+</app-clear-selected-user>
+

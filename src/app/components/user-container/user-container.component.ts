@@ -23,4 +23,7 @@ export class UserContainerComponent {
     this.selectedUser = null;
   }
 
+  addNewUser(user: User) {
+    this.users.push(user);
+  }
 }

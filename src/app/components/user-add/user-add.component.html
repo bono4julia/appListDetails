@@ -1,0 +1,30 @@
+<p>
+  user-add works!
+ </p> 
+
+  <form (ngSubmit)="addNewUser()" >
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" name="name" required
+        [(ngModel)]="user.name"
+      >
+    </div>
+    <div>
+      <label for="surename">Surname:</label>
+      <input type="text" name="surename" required
+        [(ngModel)]="user.surname"
+      >
+    </div>
+    <div>
+      <label for="adress">Adress:</label>
+      <input type="text" name="adress"
+        [(ngModel)]="user.adress"
+      >
+    </div> 
+
+    <button type="submit">Add user</button>
+
+  </form>
+
+ 
+
